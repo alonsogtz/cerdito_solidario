@@ -1,4 +1,6 @@
 ActiveAdmin.register DisbursementOption do
+
+ permit_params :bank_id, :account_number, :beneficiary_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
