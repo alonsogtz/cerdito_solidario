@@ -17,7 +17,7 @@
       <% @payment_methods.each do |payment_method| %>
       <tr>
         <td><%= payment_method.account_number %></td>
-        <td><%= payment_method.bank_id %></td>
+        <td><%= payment_method.bank.name %></td>
         <td>
           <a href="/payment_methods/<%= payment_method.id %>" class="btn btn-primary">Show</a>
           <a href="/payment_methods/<%= payment_method.id %>/edit" class="btn btn-warning">Edit</a>
