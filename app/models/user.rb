@@ -23,6 +23,14 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :senders,
+             :through => :received_messages,
+             :source => :sender
+
+  has_many   :recipients,
+             :through => :sent_messages,
+             :source => :receiver
+
   # Validations
 
   validates :curp, :uniqueness => { :allow_blank => true }
