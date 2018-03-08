@@ -5,6 +5,8 @@ class Credit < ApplicationRecord
 
   # Validations
 
+  validates :group_id, :presence => true
+
   validates :status, :presence => true
 
   validates :user_id, :presence => true
