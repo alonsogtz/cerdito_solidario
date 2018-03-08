@@ -21,6 +21,10 @@ class Group < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :creditors,
+             :through => :credits,
+             :source => :user
+
   # Validations
 
   validates :begining_date, :presence => true

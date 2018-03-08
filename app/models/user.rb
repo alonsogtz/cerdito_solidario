@@ -23,6 +23,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :credit_groups,
+             :through => :credits,
+             :source => :group
+
   has_many   :senders,
              :through => :received_messages,
              :source => :sender
