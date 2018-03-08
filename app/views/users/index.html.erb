@@ -1,0 +1,50 @@
+<div class="page-header">
+  <h1>
+    Users
+    <a href="/users/new" class="btn btn-lg btn-success">New User</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Given name</th>
+        <th>Paternal last name</th>
+        <th>Maternal last name</th>
+        <th>Curp</th>
+        <th>Curp image</th>
+        <th>Proof of adress image</th>
+        <th>Address</th>
+        <th>Birth day</th>
+        <th>Phone</th>
+        <th>Comments</th>
+        <th>Validation</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.given_name %></td>
+        <td><%= user.paternal_last_name %></td>
+        <td><%= user.maternal_last_name %></td>
+        <td><%= user.curp %></td>
+        <td><%= user.curp_image %></td>
+        <td><%= user.proof_of_adress_image %></td>
+        <td><%= user.address %></td>
+        <td><%= user.birth_day %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.comments %></td>
+        <td><%= user.validation %></td>
+        <td>
+          <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
