@@ -1,4 +1,14 @@
 class PersonalMessagesController < ApplicationController
+  before_action :current_user_must_be_personal_message_sender, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_personal_message_sender
+    personal_message = PersonalMessage.find(params[:id])
+
+    unless current_user == personal_message.sender
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @personal_messages = PersonalMessage.all
 

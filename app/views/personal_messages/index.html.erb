@@ -22,8 +22,11 @@
         <td><%= personal_message.message %></td>
         <td>
           <a href="/personal_messages/<%= personal_message.id %>" class="btn btn-primary">Show</a>
-          <a href="/personal_messages/<%= personal_message.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_personal_message/<%= personal_message.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == personal_message.sender %>
+            <a href="/personal_messages/<%= personal_message.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_personal_message/<%= personal_message.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
