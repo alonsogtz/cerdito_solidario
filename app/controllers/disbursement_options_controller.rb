@@ -1,5 +1,5 @@
 class DisbursementOptionsController < ApplicationController
-  before_action :current_user_must_be_disbursement_option_beneficiary, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_disbursement_option_beneficiary, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_disbursement_option_beneficiary
     disbursement_option = DisbursementOption.find(params[:id])
