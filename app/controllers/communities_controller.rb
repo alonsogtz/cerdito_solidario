@@ -6,6 +6,7 @@ class CommunitiesController < ApplicationController
   end
 
   def show
+    @group = Group.new
     @community = Community.find(params[:id])
 
     render("communities/show.html.erb")

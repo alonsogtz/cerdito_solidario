@@ -54,6 +54,83 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_group" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for community_id -->
+      <input type="hidden" name="community_id" value="<%= @community.id %>">
+
+      <!-- Label and input for preferredp_mt_method_id -->
+      <div class="form-group">
+        <label for="preferredp_mt_method_id" class="control-label">
+          Preferredp mt method
+        </label>
+
+        <%= select_tag(:preferredp_mt_method_id, options_from_collection_for_select(PaymentMethod.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for begining_date -->
+      <div class="form-group">
+        <label for="begining_date" class="control-label">
+          Begining date
+        </label>
+
+        <input type="text" id="begining_date" name="begining_date" placeholder="Begining date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for end_date -->
+      <div class="form-group">
+        <label for="end_date" class="control-label">
+          End date
+        </label>
+
+        <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for weekly_pmt -->
+      <div class="form-group">
+        <label for="weekly_pmt" class="control-label">
+          Weekly pmt
+        </label>
+
+        <input type="text" id="weekly_pmt" name="weekly_pmt" placeholder="Weekly pmt" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for total_principal -->
+      <div class="form-group">
+        <label for="total_principal" class="control-label">
+          Total principal
+        </label>
+
+        <input type="text" id="total_principal" name="total_principal" placeholder="Total principal" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Group
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

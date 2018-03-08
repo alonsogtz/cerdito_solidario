@@ -72,6 +72,94 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_credit" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for group_id -->
+      <input type="hidden" name="group_id" value="<%= @group.id %>">
+
+      <!-- Label and input for pricing -->
+      <div class="form-group">
+        <label for="pricing" class="control-label">
+          Pricing
+        </label>
+
+        <input type="text" id="pricing" name="pricing" placeholder="Pricing" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for weekly_payment -->
+      <div class="form-group">
+        <label for="weekly_payment" class="control-label">
+          Weekly payment
+        </label>
+
+        <input type="text" id="weekly_payment" name="weekly_payment" placeholder="Weekly payment" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="checkbox">
+        <label for="status">
+          <input type="checkbox" id="status" name="status" value="1" <%= "checked" if @credit.status %>>
+          Status
+        </label>
+      </div>
+
+      <!-- Label and input for disbursement_confirmation -->
+      <div class="form-group">
+        <label for="disbursement_confirmation" class="control-label">
+          Disbursement confirmation
+        </label>
+
+        <input type="text" id="disbursement_confirmation" name="disbursement_confirmation" placeholder="Disbursement confirmation" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for disbursement_confirmation_image -->
+      <div class="form-group">
+        <label for="disbursement_confirmation_image" class="control-label">
+          Disbursement confirmation image
+        </label>
+
+        <input type="file" id="disbursement_confirmation_image" name="disbursement_confirmation_image" class="form-control">
+      </div>
+
+      <!-- Label and input for disbursement_option_id -->
+      <div class="form-group">
+        <label for="disbursement_option_id" class="control-label">
+          Disbursement option
+        </label>
+
+        <%= select_tag(:disbursement_option_id, options_from_collection_for_select(DisbursementOption.all, :id, :bank_id), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Credit
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -103,6 +191,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_payment_confirmation" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for group_id -->
+      <input type="hidden" name="group_id" value="<%= @group.id %>">
+
+      <!-- Label and input for date_posted -->
+      <div class="form-group">
+        <label for="date_posted" class="control-label">
+          Date posted
+        </label>
+
+        <input type="text" id="date_posted" name="date_posted" placeholder="Date posted" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="file" id="image" name="image" class="form-control">
+      </div>
+
+      <!-- Label and input for payment_method_id -->
+      <div class="form-group">
+        <label for="payment_method_id" class="control-label">
+          Payment method
+        </label>
+
+        <%= select_tag(:payment_method_id, options_from_collection_for_select(PaymentMethod.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Payment Confirmation
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -134,6 +263,32 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_group_comment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for group_id -->
+      <input type="hidden" name="group_id" value="<%= @group.id %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Group Comment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -165,6 +320,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_leader" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for group_id -->
+      <input type="hidden" name="group_id" value="<%= @group.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Leader
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

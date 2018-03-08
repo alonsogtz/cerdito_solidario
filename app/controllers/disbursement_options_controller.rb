@@ -16,6 +16,7 @@ class DisbursementOptionsController < ApplicationController
   end
 
   def show
+    @credit = Credit.new
     @disbursement_option = DisbursementOption.find(params[:id])
 
     render("disbursement_options/show.html.erb")

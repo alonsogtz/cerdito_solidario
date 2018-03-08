@@ -6,6 +6,8 @@ class PaymentMethodsController < ApplicationController
   end
 
   def show
+    @group = Group.new
+    @payment_confirmation = PaymentConfirmation.new
     @payment_method = PaymentMethod.find(params[:id])
 
     render("payment_methods/show.html.erb")

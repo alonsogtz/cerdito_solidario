@@ -6,6 +6,10 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @leader = Leader.new
+    @group_comment = GroupComment.new
+    @payment_confirmation = PaymentConfirmation.new
+    @credit = Credit.new
     @group = Group.find(params[:id])
 
     render("groups/show.html.erb")

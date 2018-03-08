@@ -6,6 +6,8 @@ class BanksController < ApplicationController
   end
 
   def show
+    @disbursement_option = DisbursementOption.new
+    @payment_method = PaymentMethod.new
     @bank = Bank.find(params[:id])
 
     render("banks/show.html.erb")
