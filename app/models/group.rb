@@ -1,6 +1,8 @@
 class Group < ApplicationRecord
   # Direct associations
 
+  has_many   :payment_confirmations
+
   has_many   :credits,
              :dependent => :destroy
 
