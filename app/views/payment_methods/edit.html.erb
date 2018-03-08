@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @payment_method.errors.any? %>
+  <% @payment_method.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Payment Method #<%= @payment_method.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_payment_method/<%= @payment_method.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for account_number -->
+      <div class="form-group">
+        <label for="account_number" class="control-label">
+          Account number
+        </label>
+
+        <input type="text" id="account_number" name="account_number" placeholder="Account number" class="form-control" value="<%= @payment_method.account_number %>">
+      </div>
+
+      <!-- Label and input for bank_id -->
+      <div class="form-group">
+        <label for="bank_id" class="control-label">
+          Bank
+        </label>
+
+        <input type="text" id="bank_id" name="bank_id" placeholder="Bank" class="form-control" value="<%= @payment_method.bank_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Payment Method
+      </button>
+      or
+      <a href="/payment_methods/<%= @payment_method.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

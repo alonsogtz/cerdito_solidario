@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Payment_method resource:
+  # CREATE
+  get "/payment_methods/new", :controller => "payment_methods", :action => "new"
+  post "/create_payment_method", :controller => "payment_methods", :action => "create"
+
+  # READ
+  get "/payment_methods", :controller => "payment_methods", :action => "index"
+  get "/payment_methods/:id", :controller => "payment_methods", :action => "show"
+
+  # UPDATE
+  get "/payment_methods/:id/edit", :controller => "payment_methods", :action => "edit"
+  post "/update_payment_method/:id", :controller => "payment_methods", :action => "update"
+
+  # DELETE
+  get "/delete_payment_method/:id", :controller => "payment_methods", :action => "destroy"
+  #------------------------------
+
   # Routes for the Leader resource:
   # CREATE
   get "/leaders/new", :controller => "leaders", :action => "new"
