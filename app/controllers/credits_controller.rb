@@ -55,8 +55,6 @@ class CreditsController < ApplicationController
 
   def update
     @credit = Credit.find(params[:id])
-
-    @credit.user_id = params[:user_id]
     @credit.amount = params[:amount]
     @credit.group_id = params[:group_id]
     @credit.pricing = params[:pricing]
