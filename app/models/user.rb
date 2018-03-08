@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :leaders
+
   has_many   :group_comments
 
   has_many   :credits
