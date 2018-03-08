@@ -1,6 +1,9 @@
 class Group < ApplicationRecord
   # Direct associations
 
+  has_many   :credits,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
