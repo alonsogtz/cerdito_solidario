@@ -17,7 +17,7 @@
 
       <% @personal_messages.each do |personal_message| %>
       <tr>
-        <td><%= personal_message.sender_id %></td>
+        <td><%= personal_message.sender.email %></td>
         <td><%= personal_message.receiver_id %></td>
         <td><%= personal_message.message %></td>
         <td>
