@@ -10,7 +10,8 @@ class GroupCommentsController < ApplicationController
   end
 
   def index
-    @group_comments = GroupComment.page(params[:page]).per(10)
+    @q = GroupComment.ransack(params[:q])
+    @group_comments = @q.result(:distinct => true).includes(:user, :group).page(params[:page]).per(10)
 
     render("group_comments/index.html.erb")
   end

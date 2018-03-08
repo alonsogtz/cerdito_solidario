@@ -10,7 +10,8 @@ class LeadersController < ApplicationController
   end
 
   def index
-    @leaders = current_user.leaders.page(params[:page]).per(10)
+    @q = current_user.leaders.ransack(params[:q])
+      @leaders = @q.result(:distinct => true).includes(:user, :group).page(params[:page]).per(10)
 
     render("leaders/index.html.erb")
   end

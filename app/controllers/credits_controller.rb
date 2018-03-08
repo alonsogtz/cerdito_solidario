@@ -10,7 +10,8 @@ class CreditsController < ApplicationController
   end
 
   def index
-    @credits = current_user.credits.page(params[:page]).per(10)
+    @q = current_user.credits.ransack(params[:q])
+      @credits = @q.result(:distinct => true).includes(:user, :group, :disbursement_option).page(params[:page]).per(10)
 
     render("credits/index.html.erb")
   end

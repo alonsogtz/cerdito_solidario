@@ -1,6 +1,7 @@
 class PaymentMethodsController < ApplicationController
   def index
-    @payment_methods = PaymentMethod.page(params[:page]).per(10)
+    @q = PaymentMethod.ransack(params[:q])
+    @payment_methods = @q.result(:distinct => true).includes(:payment_confirmations, :groups, :bank).page(params[:page]).per(10)
 
     render("payment_methods/index.html.erb")
   end

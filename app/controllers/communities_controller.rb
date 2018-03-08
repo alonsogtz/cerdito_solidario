@@ -1,6 +1,7 @@
 class CommunitiesController < ApplicationController
   def index
-    @communities = Community.page(params[:page]).per(10)
+    @q = Community.ransack(params[:q])
+    @communities = @q.result(:distinct => true).includes(:groups, :state).page(params[:page]).per(10)
 
     render("communities/index.html.erb")
   end

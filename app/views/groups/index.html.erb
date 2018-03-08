@@ -3,6 +3,219 @@
     Groups
     <a href="/groups/new" class="btn btn-lg btn-success">New Group</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "groups_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :total_principal_cont, "Total principal contains" %>
+    <%= f.text_field :total_principal_cont, :class => "form-control", :placeholder => "Total principal contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :weekly_pmt_cont, "Weekly pmt contains" %>
+    <%= f.text_field :weekly_pmt_cont, :class => "form-control", :placeholder => "Weekly pmt contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :end_date, "End date" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='end_dategteqPicker'>
+                  <%= f.text_field :end_date_gteq, :class => "form-control", :placeholder => "End date greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='end_datelteqPicker'>
+                  <%= f.text_field :end_date_lteq, :class => "form-control", :placeholder => "End date less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#end_dategteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#end_datelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#end_dategteqPicker').on("dp.change", function (e) {
+                  $('#end_datelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#end_datelteqPicker').on("dp.change", function (e) {
+                  $('#end_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :begining_date, "Begining date" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='begining_dategteqPicker'>
+                  <%= f.text_field :begining_date_gteq, :class => "form-control", :placeholder => "Begining date greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='begining_datelteqPicker'>
+                  <%= f.text_field :begining_date_lteq, :class => "form-control", :placeholder => "Begining date less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#begining_dategteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#begining_datelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#begining_dategteqPicker').on("dp.change", function (e) {
+                  $('#begining_datelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#begining_datelteqPicker').on("dp.change", function (e) {
+                  $('#begining_dategteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+    <%= f.label :comments_cont, "Comments contains" %>
+    <%= f.text_field :comments_cont, :class => "form-control", :placeholder => "Comments contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+          <%= f.label :created_at, "PaymentMethod Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='preferredp_mt_methodgteqcreated_atPicker'>
+                  <%= f.text_field :preferredp_mt_method_created_at_gteq, :class => "form-control", :placeholder => "PaymentMethod Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='preferredp_mt_methodlteqcreated_atPicker'>
+                  <%= f.text_field :preferredp_mt_method_created_at_lteq, :class => "form-control", :placeholder => "PaymentMethod Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#preferredp_mt_methodgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#preferredp_mt_methodlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#preferredp_mt_methodgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#preferredp_mt_methodlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#preferredp_mt_methodlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#preferredp_mt_methodgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+      <%= f.label :area_name_cont, "Community name contains" %>
+      <%= f.text_field :area_name_cont, :class => "form-control", :placeholder => "Community name contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :creditors_email_cont, "User email contains" %>
+      <%= f.text_field :creditors_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :commenters_email_cont, "User email contains" %>
+      <%= f.text_field :commenters_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+<div class="form-group">
+      <%= f.label :group_leaders_email_cont, "User email contains" %>
+      <%= f.text_field :group_leaders_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/groups" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#groups_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">
