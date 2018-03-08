@@ -42,7 +42,7 @@
           Beneficiary
         </label>
 
-        <input type="text" id="beneficiary_id" name="beneficiary_id" placeholder="Beneficiary" class="form-control" value="<%= @disbursement_option.beneficiary_id %>">
+        <%= select_tag(:beneficiary_id, options_from_collection_for_select(User.all, :id, :email, @disbursement_option.beneficiary_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
