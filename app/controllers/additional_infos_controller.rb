@@ -1,5 +1,5 @@
 class AdditionalInfosController < ApplicationController
-  before_action :current_user_must_be_additional_info_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_additional_info_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_additional_info_user
     additional_info = AdditionalInfo.find(params[:id])
