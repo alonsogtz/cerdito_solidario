@@ -1,6 +1,8 @@
 class Community < ApplicationRecord
   # Direct associations
 
+  has_many   :groups
+
   # Indirect associations
 
   # Validations

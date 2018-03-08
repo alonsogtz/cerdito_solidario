@@ -1,6 +1,11 @@
 class Group < ApplicationRecord
   # Direct associations
 
+  belongs_to :area,
+             :class_name => "Community",
+             :foreign_key => "community_id",
+             :counter_cache => true
+
   belongs_to :preferredp_mt_method,
              :class_name => "PaymentMethod",
              :counter_cache => true
