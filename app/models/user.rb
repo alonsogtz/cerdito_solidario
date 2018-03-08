@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :disbursement_options,
+             :foreign_key => "beneficiary_id",
+             :dependent => :nullify
+
   has_many   :additional_infos
 
   has_many   :leaders
