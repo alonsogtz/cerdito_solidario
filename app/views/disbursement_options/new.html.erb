@@ -24,7 +24,7 @@
           Bank
         </label>
 
-        <input type="text" id="bank_id" name="bank_id" placeholder="Bank" class="form-control" value="<%= @disbursement_option.bank_id %>">
+        <%= select_tag(:bank_id, options_from_collection_for_select(Bank.all, :id, :name, @disbursement_option.bank_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for account_number -->
