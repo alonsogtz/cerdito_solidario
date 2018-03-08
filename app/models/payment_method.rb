@@ -1,6 +1,9 @@
 class PaymentMethod < ApplicationRecord
   # Direct associations
 
+  belongs_to :bank,
+             :counter_cache => true
+
   has_many   :groups,
              :foreign_key => "preferredp_mt_method_id"
 
