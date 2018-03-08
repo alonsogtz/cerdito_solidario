@@ -17,7 +17,7 @@
       <% @communities.each do |community| %>
       <tr>
         <td><%= community.name %></td>
-        <td><%= community.state_id %></td>
+        <td><%= community.state.name %></td>
         <td>
           <a href="/communities/<%= community.id %>" class="btn btn-primary">Show</a>
           <a href="/communities/<%= community.id %>/edit" class="btn btn-warning">Edit</a>
