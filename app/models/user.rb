@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :sent_messages,
+             :class_name => "PersonalMessage",
+             :foreign_key => "sender_id"
+
   # Indirect associations
 
   # Validations
