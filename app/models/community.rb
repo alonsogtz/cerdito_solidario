@@ -1,6 +1,9 @@
 class Community < ApplicationRecord
   # Direct associations
 
+  belongs_to :state,
+             :counter_cache => :areas_count
+
   has_many   :groups
 
   # Indirect associations
