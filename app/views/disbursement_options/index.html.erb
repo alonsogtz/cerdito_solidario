@@ -17,7 +17,7 @@
 
       <% @disbursement_options.each do |disbursement_option| %>
       <tr>
-        <td><%= disbursement_option.bank_id %></td>
+        <td><%= disbursement_option.bank.name %></td>
         <td><%= disbursement_option.account_number %></td>
         <td><%= disbursement_option.beneficiary_id %></td>
         <td>
