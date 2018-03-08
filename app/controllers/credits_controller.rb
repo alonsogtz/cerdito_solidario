@@ -10,7 +10,7 @@ class CreditsController < ApplicationController
   end
 
   def index
-    @credits = Credit.all
+    @credits = current_user.credits.page(params[:page]).per(10)
 
     render("credits/index.html.erb")
   end
