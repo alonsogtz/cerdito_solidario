@@ -5,4 +5,6 @@ class PaymentMethod < ApplicationRecord
 
   # Validations
 
+  validates :bank_id, :presence => true
+
 end
