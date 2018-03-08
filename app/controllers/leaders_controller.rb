@@ -47,8 +47,6 @@ class LeadersController < ApplicationController
 
   def update
     @leader = Leader.find(params[:id])
-
-    @leader.user_id = params[:user_id]
     @leader.group_id = params[:group_id]
 
     save_status = @leader.save
