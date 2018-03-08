@@ -33,7 +33,7 @@
           Receiver
         </label>
 
-        <input type="text" id="receiver_id" name="receiver_id" placeholder="Receiver" class="form-control" value="<%= @personal_message.receiver_id %>">
+        <%= select_tag(:receiver_id, options_from_collection_for_select(User.all, :id, :email, @personal_message.receiver_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for message -->
