@@ -5,6 +5,8 @@ class AdditionalInfo < ApplicationRecord
 
   # Validations
 
+  validates :description, :presence => true
+
   validates :title, :presence => true
 
   validates :user_id, :presence => true
