@@ -10,7 +10,7 @@ class LeadersController < ApplicationController
   end
 
   def index
-    @leaders = Leader.all
+    @leaders = current_user.leaders.page(params[:page]).per(10)
 
     render("leaders/index.html.erb")
   end
