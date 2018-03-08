@@ -23,6 +23,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :leading_groups,
+             :through => :leaders,
+             :source => :group
+
   has_many   :commented_groups,
              :through => :group_comments,
              :source => :group

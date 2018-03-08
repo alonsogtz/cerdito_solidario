@@ -21,6 +21,10 @@ class Group < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :group_leaders,
+             :through => :leaders,
+             :source => :user
+
   has_many   :commenters,
              :through => :group_comments,
              :source => :user
