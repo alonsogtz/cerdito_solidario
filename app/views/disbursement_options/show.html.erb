@@ -20,12 +20,14 @@
       <a href="/disbursement_options" class="btn btn-primary">
         Back
       </a>
-      <a href="/disbursement_options/<%= @disbursement_option.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_disbursement_option/<%= @disbursement_option.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @disbursement_option.beneficiary %>
+        <a href="/disbursement_options/<%= @disbursement_option.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_disbursement_option/<%= @disbursement_option.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

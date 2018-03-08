@@ -1,4 +1,14 @@
 class DisbursementOptionsController < ApplicationController
+  before_action :current_user_must_be_disbursement_option_beneficiary, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_disbursement_option_beneficiary
+    disbursement_option = DisbursementOption.find(params[:id])
+
+    unless current_user == disbursement_option.beneficiary
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @disbursement_options = DisbursementOption.all
 
