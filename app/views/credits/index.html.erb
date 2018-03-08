@@ -33,7 +33,7 @@
         <td><%= credit.status %></td>
         <td><%= credit.disbursement_confirmation %></td>
         <td><%= credit.disbursement_confirmation_image %></td>
-        <td><%= credit.disbursement_option_id %></td>
+        <td><%= credit.disbursement_option.bank_id %></td>
         <td>
           <a href="/credits/<%= credit.id %>" class="btn btn-primary">Show</a>
           <a href="/credits/<%= credit.id %>/edit" class="btn btn-warning">Edit</a>
