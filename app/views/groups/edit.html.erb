@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @group.errors.any? %>
+  <% @group.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Group #<%= @group.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_group/<%= @group.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @group.name %>">
+      </div>
+
+      <!-- Label and input for community_id -->
+      <div class="form-group">
+        <label for="community_id" class="control-label">
+          Community
+        </label>
+
+        <input type="text" id="community_id" name="community_id" placeholder="Community" class="form-control" value="<%= @group.community_id %>">
+      </div>
+
+      <!-- Label and input for preferredp_mt_method_id -->
+      <div class="form-group">
+        <label for="preferredp_mt_method_id" class="control-label">
+          Preferredp mt method
+        </label>
+
+        <input type="text" id="preferredp_mt_method_id" name="preferredp_mt_method_id" placeholder="Preferredp mt method" class="form-control" value="<%= @group.preferredp_mt_method_id %>">
+      </div>
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @group.comments %>">
+      </div>
+
+      <!-- Label and input for begining_date -->
+      <div class="form-group">
+        <label for="begining_date" class="control-label">
+          Begining date
+        </label>
+
+        <input type="text" id="begining_date" name="begining_date" placeholder="Begining date" class="form-control" value="<%= @group.begining_date %>">
+      </div>
+
+      <!-- Label and input for end_date -->
+      <div class="form-group">
+        <label for="end_date" class="control-label">
+          End date
+        </label>
+
+        <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="<%= @group.end_date %>">
+      </div>
+
+      <!-- Label and input for weekly_pmt -->
+      <div class="form-group">
+        <label for="weekly_pmt" class="control-label">
+          Weekly pmt
+        </label>
+
+        <input type="text" id="weekly_pmt" name="weekly_pmt" placeholder="Weekly pmt" class="form-control" value="<%= @group.weekly_pmt %>">
+      </div>
+
+      <!-- Label and input for total_principal -->
+      <div class="form-group">
+        <label for="total_principal" class="control-label">
+          Total principal
+        </label>
+
+        <input type="text" id="total_principal" name="total_principal" placeholder="Total principal" class="form-control" value="<%= @group.total_principal %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Group
+      </button>
+      or
+      <a href="/groups/<%= @group.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

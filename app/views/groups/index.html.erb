@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>
+    Groups
+    <a href="/groups/new" class="btn btn-lg btn-success">New Group</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Community</th>
+        <th>Preferredp mt method</th>
+        <th>Comments</th>
+        <th>Begining date</th>
+        <th>End date</th>
+        <th>Weekly pmt</th>
+        <th>Total principal</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.name %></td>
+        <td><%= group.community_id %></td>
+        <td><%= group.preferredp_mt_method_id %></td>
+        <td><%= group.comments %></td>
+        <td><%= group.begining_date %></td>
+        <td><%= group.end_date %></td>
+        <td><%= group.weekly_pmt %></td>
+        <td><%= group.total_principal %></td>
+        <td>
+          <a href="/groups/<%= group.id %>" class="btn btn-primary">Show</a>
+          <a href="/groups/<%= group.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_group/<%= group.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
