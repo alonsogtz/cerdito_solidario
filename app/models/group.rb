@@ -1,6 +1,8 @@
 class Group < ApplicationRecord
   # Direct associations
 
+  has_many   :leaders
+
   has_many   :group_comments
 
   has_many   :payment_confirmations
