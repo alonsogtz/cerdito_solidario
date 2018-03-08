@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Disbursement Option #<%= @disbursement_option.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Bank</dt>
+      <dd><%= @disbursement_option.bank_id %></dd>
+
+      <dt>Account number</dt>
+      <dd><%= @disbursement_option.account_number %></dd>
+
+      <dt>Beneficiary</dt>
+      <dd><%= @disbursement_option.beneficiary_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/disbursement_options" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/disbursement_options/<%= @disbursement_option.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_disbursement_option/<%= @disbursement_option.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Disbursement_option resource:
+  # CREATE
+  get "/disbursement_options/new", :controller => "disbursement_options", :action => "new"
+  post "/create_disbursement_option", :controller => "disbursement_options", :action => "create"
+
+  # READ
+  get "/disbursement_options", :controller => "disbursement_options", :action => "index"
+  get "/disbursement_options/:id", :controller => "disbursement_options", :action => "show"
+
+  # UPDATE
+  get "/disbursement_options/:id/edit", :controller => "disbursement_options", :action => "edit"
+  post "/update_disbursement_option/:id", :controller => "disbursement_options", :action => "update"
+
+  # DELETE
+  get "/delete_disbursement_option/:id", :controller => "disbursement_options", :action => "destroy"
+  #------------------------------
+
   # Routes for the State resource:
   # CREATE
   get "/states/new", :controller => "states", :action => "new"
