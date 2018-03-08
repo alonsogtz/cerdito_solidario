@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :given_name, :presence => true
+
   validates :maternal_last_name, :presence => true
 
   validates :paternal_last_name, :presence => true
