@@ -22,13 +22,7 @@
       <input type="hidden" name="sender_id" value="<%= current_user.id %>">
 
       <!-- Label and input for receiver_id -->
-      <div class="form-group">
-        <label for="receiver_id" class="control-label">
-          Receiver
-        </label>
-
-        <%= select_tag(:receiver_id, options_from_collection_for_select(User.all, :id, :email, @personal_message.receiver_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="receiver_id" value="<%= current_user.id %>">
 
       <!-- Label and input for message -->
       <div class="form-group">
