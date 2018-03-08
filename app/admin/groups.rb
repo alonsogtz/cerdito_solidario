@@ -1,4 +1,6 @@
 ActiveAdmin.register Group do
+
+ permit_params :name, :community_id, :preferredp_mt_method_id, :comments, :begining_date, :end_date, :weekly_pmt, :total_principal
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
