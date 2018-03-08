@@ -18,7 +18,7 @@
 
       <% @payment_confirmations.each do |payment_confirmation| %>
       <tr>
-        <td><%= payment_confirmation.group_id %></td>
+        <td><%= payment_confirmation.group.name %></td>
         <td><%= payment_confirmation.date_posted %></td>
         <td><%= payment_confirmation.image %></td>
         <td><%= payment_confirmation.payment_method_id %></td>
