@@ -16,7 +16,7 @@
 
       <% @leaders.each do |leader| %>
       <tr>
-        <td><%= leader.user_id %></td>
+        <td><%= leader.user.email %></td>
         <td><%= leader.group_id %></td>
         <td>
           <a href="/leaders/<%= leader.id %>" class="btn btn-primary">Show</a>
