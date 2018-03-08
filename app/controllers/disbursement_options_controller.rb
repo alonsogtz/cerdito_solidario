@@ -10,7 +10,7 @@ class DisbursementOptionsController < ApplicationController
   end
 
   def index
-    @disbursement_options = DisbursementOption.all
+    @disbursement_options = DisbursementOption.page(params[:page]).per(10)
 
     render("disbursement_options/index.html.erb")
   end

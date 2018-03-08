@@ -1,6 +1,6 @@
 class PaymentConfirmationsController < ApplicationController
   def index
-    @payment_confirmations = PaymentConfirmation.all
+    @payment_confirmations = PaymentConfirmation.page(params[:page]).per(10)
 
     render("payment_confirmations/index.html.erb")
   end

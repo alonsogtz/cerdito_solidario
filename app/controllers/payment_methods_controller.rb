@@ -1,6 +1,6 @@
 class PaymentMethodsController < ApplicationController
   def index
-    @payment_methods = PaymentMethod.all
+    @payment_methods = PaymentMethod.page(params[:page]).per(10)
 
     render("payment_methods/index.html.erb")
   end

@@ -10,7 +10,7 @@ class GroupCommentsController < ApplicationController
   end
 
   def index
-    @group_comments = GroupComment.all
+    @group_comments = GroupComment.page(params[:page]).per(10)
 
     render("group_comments/index.html.erb")
   end
