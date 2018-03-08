@@ -21,7 +21,7 @@
         <td><%= payment_confirmation.group.name %></td>
         <td><%= payment_confirmation.date_posted %></td>
         <td><%= payment_confirmation.image %></td>
-        <td><%= payment_confirmation.payment_method_id %></td>
+        <td><%= payment_confirmation.payment_method.created_at %></td>
         <td>
           <a href="/payment_confirmations/<%= payment_confirmation.id %>" class="btn btn-primary">Show</a>
           <a href="/payment_confirmations/<%= payment_confirmation.id %>/edit" class="btn btn-warning">Edit</a>
