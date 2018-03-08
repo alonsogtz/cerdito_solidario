@@ -1,6 +1,9 @@
 class PaymentMethod < ApplicationRecord
   # Direct associations
 
+  has_many   :groups,
+             :foreign_key => "preferredp_mt_method_id"
+
   has_many   :payment_confirmations
 
   # Indirect associations

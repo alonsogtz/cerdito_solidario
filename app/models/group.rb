@@ -1,6 +1,10 @@
 class Group < ApplicationRecord
   # Direct associations
 
+  belongs_to :preferredp_mt_method,
+             :class_name => "PaymentMethod",
+             :counter_cache => true
+
   has_many   :leaders
 
   has_many   :group_comments
