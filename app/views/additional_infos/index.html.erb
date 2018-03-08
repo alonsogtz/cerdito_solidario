@@ -20,7 +20,13 @@
       <tr>
         <td><%= additional_info.description %></td>
         <td><img src='<%= additional_info.image %>' class='img-responsive'></td>
-        <td><%= additional_info.user.email %></td>
+        <td>
+          <% if additional_info.user.present? %>
+            <a href="/users/<%= additional_info.user.id %>">
+              <%= additional_info.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= additional_info.title %></td>
         <td>
           <a href="/additional_infos/<%= additional_info.id %>" class="btn btn-primary">Show</a>

@@ -24,16 +24,34 @@
 
       <% @credits.each do |credit| %>
       <tr>
-        <td><%= credit.user.email %></td>
+        <td>
+          <% if credit.user.present? %>
+            <a href="/users/<%= credit.user.id %>">
+              <%= credit.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= credit.amount %></td>
-        <td><%= credit.group.name %></td>
+        <td>
+          <% if credit.group.present? %>
+            <a href="/groups/<%= credit.group.id %>">
+              <%= credit.group.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= credit.pricing %></td>
         <td><%= credit.comments %></td>
         <td><%= credit.weekly_payment %></td>
         <td><%= credit.status %></td>
         <td><%= credit.disbursement_confirmation %></td>
         <td><img src='<%= credit.disbursement_confirmation_image %>' class='img-responsive'></td>
-        <td><%= credit.disbursement_option.bank_id %></td>
+        <td>
+          <% if credit.disbursement_option.present? %>
+            <a href="/disbursement_options/<%= credit.disbursement_option.id %>">
+              <%= credit.disbursement_option.bank_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/credits/<%= credit.id %>" class="btn btn-primary">Show</a>
           

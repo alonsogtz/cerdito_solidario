@@ -12,7 +12,13 @@
       <dd><img src="<%= @additional_info.image %>" class="img-responsive"></dd>
 
       <dt>User</dt>
-      <dd><%= @additional_info.user_id %></dd>
+      <dd>
+        <% if @additional_info.user.present? %>
+          <a href="/users/<%= @additional_info.user_id %>">
+            <%= @additional_info.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Title</dt>
       <dd><%= @additional_info.title %></dd>

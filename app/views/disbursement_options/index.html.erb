@@ -17,9 +17,21 @@
 
       <% @disbursement_options.each do |disbursement_option| %>
       <tr>
-        <td><%= disbursement_option.bank.name %></td>
+        <td>
+          <% if disbursement_option.bank.present? %>
+            <a href="/banks/<%= disbursement_option.bank.id %>">
+              <%= disbursement_option.bank.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= disbursement_option.account_number %></td>
-        <td><%= disbursement_option.beneficiary.email %></td>
+        <td>
+          <% if disbursement_option.beneficiary.present? %>
+            <a href="/users/<%= disbursement_option.beneficiary.id %>">
+              <%= disbursement_option.beneficiary.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/disbursement_options/<%= disbursement_option.id %>" class="btn btn-primary">Show</a>
           

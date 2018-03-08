@@ -6,13 +6,25 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @credit.user_id %></dd>
+      <dd>
+        <% if @credit.user.present? %>
+          <a href="/users/<%= @credit.user_id %>">
+            <%= @credit.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Amount</dt>
       <dd><%= @credit.amount %></dd>
 
       <dt>Group</dt>
-      <dd><%= @credit.group_id %></dd>
+      <dd>
+        <% if @credit.group.present? %>
+          <a href="/groups/<%= @credit.group_id %>">
+            <%= @credit.group.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Pricing</dt>
       <dd><%= @credit.pricing %></dd>
@@ -33,7 +45,13 @@
       <dd><img src="<%= @credit.disbursement_confirmation_image %>" class="img-responsive"></dd>
 
       <dt>Disbursement option</dt>
-      <dd><%= @credit.disbursement_option_id %></dd>
+      <dd>
+        <% if @credit.disbursement_option.present? %>
+          <a href="/disbursement_options/<%= @credit.disbursement_option_id %>">
+            <%= @credit.disbursement_option.bank_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -9,7 +9,13 @@
       <dd><%= @community.name %></dd>
 
       <dt>State</dt>
-      <dd><%= @community.state_id %></dd>
+      <dd>
+        <% if @community.state.present? %>
+          <a href="/states/<%= @community.state_id %>">
+            <%= @community.state.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

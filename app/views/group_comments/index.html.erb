@@ -17,8 +17,20 @@
 
       <% @group_comments.each do |group_comment| %>
       <tr>
-        <td><%= group_comment.user.email %></td>
-        <td><%= group_comment.group.name %></td>
+        <td>
+          <% if group_comment.user.present? %>
+            <a href="/users/<%= group_comment.user.id %>">
+              <%= group_comment.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if group_comment.group.present? %>
+            <a href="/groups/<%= group_comment.group.id %>">
+              <%= group_comment.group.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= group_comment.body %></td>
         <td>
           <a href="/group_comments/<%= group_comment.id %>" class="btn btn-primary">Show</a>

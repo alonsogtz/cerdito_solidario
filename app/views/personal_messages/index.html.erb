@@ -17,8 +17,20 @@
 
       <% @personal_messages.each do |personal_message| %>
       <tr>
-        <td><%= personal_message.sender.email %></td>
-        <td><%= personal_message.receiver.email %></td>
+        <td>
+          <% if personal_message.sender.present? %>
+            <a href="/users/<%= personal_message.sender.id %>">
+              <%= personal_message.sender.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if personal_message.receiver.present? %>
+            <a href="/users/<%= personal_message.receiver.id %>">
+              <%= personal_message.receiver.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= personal_message.message %></td>
         <td>
           <a href="/personal_messages/<%= personal_message.id %>" class="btn btn-primary">Show</a>

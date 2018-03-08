@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Sender</dt>
-      <dd><%= @personal_message.sender_id %></dd>
+      <dd>
+        <% if @personal_message.sender.present? %>
+          <a href="/users/<%= @personal_message.sender_id %>">
+            <%= @personal_message.sender.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Receiver</dt>
-      <dd><%= @personal_message.receiver_id %></dd>
+      <dd>
+        <% if @personal_message.receiver.present? %>
+          <a href="/users/<%= @personal_message.receiver_id %>">
+            <%= @personal_message.receiver.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Message</dt>
       <dd><%= @personal_message.message %></dd>

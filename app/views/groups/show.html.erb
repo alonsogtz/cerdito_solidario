@@ -9,10 +9,22 @@
       <dd><%= @group.name %></dd>
 
       <dt>Community</dt>
-      <dd><%= @group.community_id %></dd>
+      <dd>
+        <% if @group.area.present? %>
+          <a href="/communities/<%= @group.community_id %>">
+            <%= @group.area.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Preferredp mt method</dt>
-      <dd><%= @group.preferredp_mt_method_id %></dd>
+      <dd>
+        <% if @group.preferredp_mt_method.present? %>
+          <a href="/payment_methods/<%= @group.preferredp_mt_method_id %>">
+            <%= @group.preferredp_mt_method.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Comments</dt>
       <dd><%= @group.comments %></dd>

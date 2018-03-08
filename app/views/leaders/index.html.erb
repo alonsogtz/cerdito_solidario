@@ -16,8 +16,20 @@
 
       <% @leaders.each do |leader| %>
       <tr>
-        <td><%= leader.user.email %></td>
-        <td><%= leader.group.name %></td>
+        <td>
+          <% if leader.user.present? %>
+            <a href="/users/<%= leader.user.id %>">
+              <%= leader.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if leader.group.present? %>
+            <a href="/groups/<%= leader.group.id %>">
+              <%= leader.group.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/leaders/<%= leader.id %>" class="btn btn-primary">Show</a>
           

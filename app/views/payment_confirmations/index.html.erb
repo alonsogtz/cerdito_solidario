@@ -18,10 +18,22 @@
 
       <% @payment_confirmations.each do |payment_confirmation| %>
       <tr>
-        <td><%= payment_confirmation.group.name %></td>
+        <td>
+          <% if payment_confirmation.group.present? %>
+            <a href="/groups/<%= payment_confirmation.group.id %>">
+              <%= payment_confirmation.group.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= payment_confirmation.date_posted %></td>
         <td><img src='<%= payment_confirmation.image %>' class='img-responsive'></td>
-        <td><%= payment_confirmation.payment_method.created_at %></td>
+        <td>
+          <% if payment_confirmation.payment_method.present? %>
+            <a href="/payment_methods/<%= payment_confirmation.payment_method.id %>">
+              <%= payment_confirmation.payment_method.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/payment_confirmations/<%= payment_confirmation.id %>" class="btn btn-primary">Show</a>
           <a href="/payment_confirmations/<%= payment_confirmation.id %>/edit" class="btn btn-warning">Edit</a>

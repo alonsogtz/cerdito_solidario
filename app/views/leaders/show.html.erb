@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @leader.user_id %></dd>
+      <dd>
+        <% if @leader.user.present? %>
+          <a href="/users/<%= @leader.user_id %>">
+            <%= @leader.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Group</dt>
-      <dd><%= @leader.group_id %></dd>
+      <dd>
+        <% if @leader.group.present? %>
+          <a href="/groups/<%= @leader.group_id %>">
+            <%= @leader.group.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
