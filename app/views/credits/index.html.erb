@@ -36,8 +36,11 @@
         <td><%= credit.disbursement_option.bank_id %></td>
         <td>
           <a href="/credits/<%= credit.id %>" class="btn btn-primary">Show</a>
-          <a href="/credits/<%= credit.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_credit/<%= credit.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == credit.user %>
+            <a href="/credits/<%= credit.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_credit/<%= credit.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
