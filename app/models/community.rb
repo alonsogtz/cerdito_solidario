@@ -5,6 +5,8 @@ class Community < ApplicationRecord
 
   # Validations
 
+  validates :name, :uniqueness => { :scope => [:state_id] }
+
   validates :name, :presence => true
 
 end
