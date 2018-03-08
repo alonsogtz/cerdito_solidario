@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Community #<%= @community.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @community.name %></dd>
+
+      <dt>State</dt>
+      <dd><%= @community.state_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/communities" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/communities/<%= @community.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_community/<%= @community.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

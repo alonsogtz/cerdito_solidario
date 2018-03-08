@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Community resource:
+  # CREATE
+  get "/communities/new", :controller => "communities", :action => "new"
+  post "/create_community", :controller => "communities", :action => "create"
+
+  # READ
+  get "/communities", :controller => "communities", :action => "index"
+  get "/communities/:id", :controller => "communities", :action => "show"
+
+  # UPDATE
+  get "/communities/:id/edit", :controller => "communities", :action => "edit"
+  post "/update_community/:id", :controller => "communities", :action => "update"
+
+  # DELETE
+  get "/delete_community/:id", :controller => "communities", :action => "destroy"
+  #------------------------------
+
   # Routes for the Additional_info resource:
   # CREATE
   get "/additional_infos/new", :controller => "additional_infos", :action => "new"
