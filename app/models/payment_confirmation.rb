@@ -1,4 +1,6 @@
 class PaymentConfirmation < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   # Direct associations
 
   belongs_to :payment_method,

@@ -32,7 +32,7 @@
         <td><%= credit.weekly_payment %></td>
         <td><%= credit.status %></td>
         <td><%= credit.disbursement_confirmation %></td>
-        <td><%= credit.disbursement_confirmation_image %></td>
+        <td><img src='<%= credit.disbursement_confirmation_image %>' class='img-responsive'></td>
         <td><%= credit.disbursement_option.bank_id %></td>
         <td>
           <a href="/credits/<%= credit.id %>" class="btn btn-primary">Show</a>

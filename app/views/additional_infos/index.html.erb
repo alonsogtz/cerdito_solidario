@@ -19,7 +19,7 @@
       <% @additional_infos.each do |additional_info| %>
       <tr>
         <td><%= additional_info.description %></td>
-        <td><%= additional_info.image %></td>
+        <td><img src='<%= additional_info.image %>' class='img-responsive'></td>
         <td><%= additional_info.user.email %></td>
         <td><%= additional_info.title %></td>
         <td>

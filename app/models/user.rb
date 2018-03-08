@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  mount_uploader :proof_of_adress_image, ProofOfAdressImageUploader
+
+  mount_uploader :curp_image, CurpImageUploader
+
   # Direct associations
 
   has_many   :disbursement_options,

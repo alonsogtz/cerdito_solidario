@@ -1,4 +1,6 @@
 class Credit < ApplicationRecord
+  mount_uploader :disbursement_confirmation_image, DisbursementConfirmationImageUploader
+
   # Direct associations
 
   belongs_to :disbursement_option,
