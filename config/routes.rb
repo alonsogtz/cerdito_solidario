@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Group_comment resource:
+  # CREATE
+  get "/group_comments/new", :controller => "group_comments", :action => "new"
+  post "/create_group_comment", :controller => "group_comments", :action => "create"
+
+  # READ
+  get "/group_comments", :controller => "group_comments", :action => "index"
+  get "/group_comments/:id", :controller => "group_comments", :action => "show"
+
+  # UPDATE
+  get "/group_comments/:id/edit", :controller => "group_comments", :action => "edit"
+  post "/update_group_comment/:id", :controller => "group_comments", :action => "update"
+
+  # DELETE
+  get "/delete_group_comment/:id", :controller => "group_comments", :action => "destroy"
+  #------------------------------
+
   # Routes for the Payment_confirmation resource:
   # CREATE
   get "/payment_confirmations/new", :controller => "payment_confirmations", :action => "new"
