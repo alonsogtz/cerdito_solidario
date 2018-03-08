@@ -1,4 +1,14 @@
 class AdditionalInfosController < ApplicationController
+  before_action :current_user_must_be_additional_info_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_additional_info_user
+    additional_info = AdditionalInfo.find(params[:id])
+
+    unless current_user == additional_info.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @additional_infos = AdditionalInfo.all
 

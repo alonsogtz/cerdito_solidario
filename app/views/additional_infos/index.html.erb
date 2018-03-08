@@ -24,8 +24,11 @@
         <td><%= additional_info.title %></td>
         <td>
           <a href="/additional_infos/<%= additional_info.id %>" class="btn btn-primary">Show</a>
-          <a href="/additional_infos/<%= additional_info.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_additional_info/<%= additional_info.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == additional_info.user %>
+            <a href="/additional_infos/<%= additional_info.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_additional_info/<%= additional_info.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
