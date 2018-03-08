@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :credits
+
   has_many   :received_messages,
              :class_name => "PersonalMessage",
              :foreign_key => "receiver_id"
