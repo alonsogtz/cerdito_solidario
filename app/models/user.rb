@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :phone, :uniqueness => { :allow_blank => true }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
