@@ -5,4 +5,6 @@ class Group < ApplicationRecord
 
   # Validations
 
+  validates :preferredp_mt_method_id, :presence => true
+
 end
