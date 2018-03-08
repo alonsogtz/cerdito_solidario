@@ -22,8 +22,11 @@
         <td><%= group_comment.body %></td>
         <td>
           <a href="/group_comments/<%= group_comment.id %>" class="btn btn-primary">Show</a>
-          <a href="/group_comments/<%= group_comment.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_group_comment/<%= group_comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == group_comment.user %>
+            <a href="/group_comments/<%= group_comment.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_group_comment/<%= group_comment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
