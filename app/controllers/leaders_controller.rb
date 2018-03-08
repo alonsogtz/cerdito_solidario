@@ -1,4 +1,14 @@
 class LeadersController < ApplicationController
+  before_action :current_user_must_be_leader_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_leader_user
+    leader = Leader.find(params[:id])
+
+    unless current_user == leader.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @leaders = Leader.all
 

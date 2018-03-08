@@ -17,12 +17,14 @@
       <a href="/leaders" class="btn btn-primary">
         Back
       </a>
-      <a href="/leaders/<%= @leader.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_leader/<%= @leader.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @leader.user %>
+        <a href="/leaders/<%= @leader.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_leader/<%= @leader.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
