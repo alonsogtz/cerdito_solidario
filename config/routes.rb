@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Leader resource:
+  # CREATE
+  get "/leaders/new", :controller => "leaders", :action => "new"
+  post "/create_leader", :controller => "leaders", :action => "create"
+
+  # READ
+  get "/leaders", :controller => "leaders", :action => "index"
+  get "/leaders/:id", :controller => "leaders", :action => "show"
+
+  # UPDATE
+  get "/leaders/:id/edit", :controller => "leaders", :action => "edit"
+  post "/update_leader/:id", :controller => "leaders", :action => "update"
+
+  # DELETE
+  get "/delete_leader/:id", :controller => "leaders", :action => "destroy"
+  #------------------------------
+
   # Routes for the Group_comment resource:
   # CREATE
   get "/group_comments/new", :controller => "group_comments", :action => "new"

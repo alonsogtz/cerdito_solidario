@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Leaders
+    <a href="/leaders/new" class="btn btn-lg btn-success">New Leader</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Group</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @leaders.each do |leader| %>
+      <tr>
+        <td><%= leader.user_id %></td>
+        <td><%= leader.group_id %></td>
+        <td>
+          <a href="/leaders/<%= leader.id %>" class="btn btn-primary">Show</a>
+          <a href="/leaders/<%= leader.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_leader/<%= leader.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

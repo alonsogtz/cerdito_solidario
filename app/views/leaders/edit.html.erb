@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @leader.errors.any? %>
+  <% @leader.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Leader #<%= @leader.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_leader/<%= @leader.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @leader.user_id %>">
+      </div>
+
+      <!-- Label and input for group_id -->
+      <div class="form-group">
+        <label for="group_id" class="control-label">
+          Group
+        </label>
+
+        <input type="text" id="group_id" name="group_id" placeholder="Group" class="form-control" value="<%= @leader.group_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Leader
+      </button>
+      or
+      <a href="/leaders/<%= @leader.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
