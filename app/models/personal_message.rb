@@ -5,6 +5,8 @@ class PersonalMessage < ApplicationRecord
 
   # Validations
 
+  validates :receiver_id, :presence => true
+
   validates :sender_id, :presence => true
 
 end
