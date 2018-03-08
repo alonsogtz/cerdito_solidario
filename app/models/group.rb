@@ -5,6 +5,8 @@ class Group < ApplicationRecord
 
   # Validations
 
+  validates :community_id, :presence => true
+
   validates :end_date, :presence => true
 
   validates :name, :presence => true
