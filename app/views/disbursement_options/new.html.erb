@@ -37,13 +37,7 @@
       </div>
 
       <!-- Label and input for beneficiary_id -->
-      <div class="form-group">
-        <label for="beneficiary_id" class="control-label">
-          Beneficiary
-        </label>
-
-        <%= select_tag(:beneficiary_id, options_from_collection_for_select(User.all, :id, :email, @disbursement_option.beneficiary_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="beneficiary_id" value="<%= current_user.id %>">
 
       <button class="btn btn-success">
         Create Disbursement Option
