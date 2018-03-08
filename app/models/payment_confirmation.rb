@@ -1,6 +1,9 @@
 class PaymentConfirmation < ApplicationRecord
   # Direct associations
 
+  belongs_to :payment_method,
+             :counter_cache => true
+
   belongs_to :group,
              :counter_cache => true
 

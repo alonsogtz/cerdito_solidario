@@ -1,6 +1,8 @@
 class PaymentMethod < ApplicationRecord
   # Direct associations
 
+  has_many   :payment_confirmations
+
   # Indirect associations
 
   # Validations
