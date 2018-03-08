@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :curp, :uniqueness => { :allow_blank => true }
+
   validates :given_name, :presence => true
 
   validates :maternal_last_name, :presence => true
