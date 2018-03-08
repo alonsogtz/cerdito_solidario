@@ -1,6 +1,9 @@
 class DisbursementOption < ApplicationRecord
   # Direct associations
 
+  has_many   :credits,
+             :dependent => :nullify
+
   belongs_to :bank,
              :counter_cache => true
 

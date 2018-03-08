@@ -1,6 +1,9 @@
 class Credit < ApplicationRecord
   # Direct associations
 
+  belongs_to :disbursement_option,
+             :counter_cache => true
+
   belongs_to :group,
              :counter_cache => true
 
