@@ -33,7 +33,7 @@
           Community
         </label>
 
-        <input type="text" id="community_id" name="community_id" placeholder="Community" class="form-control" value="<%= @group.community_id %>">
+        <%= select_tag(:community_id, options_from_collection_for_select(Community.all, :id, :name, @group.community_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for preferredp_mt_method_id -->
