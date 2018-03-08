@@ -48,8 +48,6 @@ class GroupCommentsController < ApplicationController
 
   def update
     @group_comment = GroupComment.find(params[:id])
-
-    @group_comment.user_id = params[:user_id]
     @group_comment.group_id = params[:group_id]
     @group_comment.body = params[:body]
 
