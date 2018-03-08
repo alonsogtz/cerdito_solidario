@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :paternal_last_name, :presence => true
+
   validates :phone, :uniqueness => { :allow_blank => true }
 
   # Include default devise modules. Others available are:
