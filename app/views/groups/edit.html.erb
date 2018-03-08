@@ -42,7 +42,7 @@
           Preferredp mt method
         </label>
 
-        <input type="text" id="preferredp_mt_method_id" name="preferredp_mt_method_id" placeholder="Preferredp mt method" class="form-control" value="<%= @group.preferredp_mt_method_id %>">
+        <%= select_tag(:preferredp_mt_method_id, options_from_collection_for_select(PaymentMethod.all, :id, :created_at, @group.preferredp_mt_method_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for comments -->
