@@ -104,7 +104,7 @@
           Disbursement option
         </label>
 
-        <input type="text" id="disbursement_option_id" name="disbursement_option_id" placeholder="Disbursement option" class="form-control" value="<%= @credit.disbursement_option_id %>">
+        <%= select_tag(:disbursement_option_id, options_from_collection_for_select(DisbursementOption.all, :id, :bank_id, @credit.disbursement_option_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
