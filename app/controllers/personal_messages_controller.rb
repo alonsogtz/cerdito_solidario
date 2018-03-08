@@ -1,5 +1,5 @@
 class PersonalMessagesController < ApplicationController
-  before_action :current_user_must_be_personal_message_sender, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_personal_message_sender, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_personal_message_sender
     personal_message = PersonalMessage.find(params[:id])
