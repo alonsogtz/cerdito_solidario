@@ -51,7 +51,7 @@
           Payment method
         </label>
 
-        <input type="text" id="payment_method_id" name="payment_method_id" placeholder="Payment method" class="form-control" value="<%= @payment_confirmation.payment_method_id %>">
+        <%= select_tag(:payment_method_id, options_from_collection_for_select(PaymentMethod.all, :id, :created_at, @payment_confirmation.payment_method_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
