@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Bank resource:
+  # CREATE
+  get "/banks/new", :controller => "banks", :action => "new"
+  post "/create_bank", :controller => "banks", :action => "create"
+
+  # READ
+  get "/banks", :controller => "banks", :action => "index"
+  get "/banks/:id", :controller => "banks", :action => "show"
+
+  # UPDATE
+  get "/banks/:id/edit", :controller => "banks", :action => "edit"
+  post "/update_bank/:id", :controller => "banks", :action => "update"
+
+  # DELETE
+  get "/delete_bank/:id", :controller => "banks", :action => "destroy"
+  #------------------------------
+
   # Routes for the Payment_method resource:
   # CREATE
   get "/payment_methods/new", :controller => "payment_methods", :action => "new"
