@@ -29,3 +29,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Disbursement option has many credits -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Credits
+      </li>
+
+      <% @disbursement_option.credits.each do |credit| %>
+        <li class="list-group-item">
+          <a href="/credits/<%= credit.id %>">
+            <%= credit.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/credits/<%= credit.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/credits/<%= credit.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_credit/<%= credit.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

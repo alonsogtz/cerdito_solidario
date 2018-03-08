@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Bank has many payment_methods -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Payment Methods
+      </li>
+
+      <% @bank.payment_methods.each do |payment_method| %>
+        <li class="list-group-item">
+          <a href="/payment_methods/<%= payment_method.id %>">
+            <%= payment_method.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/payment_methods/<%= payment_method.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/payment_methods/<%= payment_method.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_payment_method/<%= payment_method.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Bank has many disbursement_options -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Disbursement Options
+      </li>
+
+      <% @bank.disbursement_options.each do |disbursement_option| %>
+        <li class="list-group-item">
+          <a href="/disbursement_options/<%= disbursement_option.id %>">
+            <%= disbursement_option.bank_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/disbursement_options/<%= disbursement_option.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/disbursement_options/<%= disbursement_option.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_disbursement_option/<%= disbursement_option.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

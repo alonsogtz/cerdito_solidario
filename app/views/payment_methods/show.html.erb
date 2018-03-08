@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Payment method has many payment_confirmations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Payment Confirmations
+      </li>
+
+      <% @payment_method.payment_confirmations.each do |payment_confirmation| %>
+        <li class="list-group-item">
+          <a href="/payment_confirmations/<%= payment_confirmation.id %>">
+            <%= payment_confirmation.group_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/payment_confirmations/<%= payment_confirmation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/payment_confirmations/<%= payment_confirmation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_payment_confirmation/<%= payment_confirmation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Payment method has many groups -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Groups
+      </li>
+
+      <% @payment_method.groups.each do |group| %>
+        <li class="list-group-item">
+          <a href="/groups/<%= group.id %>">
+            <%= group.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/groups/<%= group.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/groups/<%= group.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_group/<%= group.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
