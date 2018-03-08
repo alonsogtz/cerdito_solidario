@@ -33,7 +33,7 @@
           Bank
         </label>
 
-        <input type="text" id="bank_id" name="bank_id" placeholder="Bank" class="form-control" value="<%= @payment_method.bank_id %>">
+        <%= select_tag(:bank_id, options_from_collection_for_select(Bank.all, :id, :name, @payment_method.bank_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
