@@ -1,5 +1,5 @@
 class CreditsController < ApplicationController
-  before_action :current_user_must_be_credit_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_credit_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_credit_user
     credit = Credit.find(params[:id])
