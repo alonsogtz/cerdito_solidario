@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Credit resource:
+  # CREATE
+  get "/credits/new", :controller => "credits", :action => "new"
+  post "/create_credit", :controller => "credits", :action => "create"
+
+  # READ
+  get "/credits", :controller => "credits", :action => "index"
+  get "/credits/:id", :controller => "credits", :action => "show"
+
+  # UPDATE
+  get "/credits/:id/edit", :controller => "credits", :action => "edit"
+  post "/update_credit/:id", :controller => "credits", :action => "update"
+
+  # DELETE
+  get "/delete_credit/:id", :controller => "credits", :action => "destroy"
+  #------------------------------
+
   # Routes for the Personal_message resource:
   # CREATE
   get "/personal_messages/new", :controller => "personal_messages", :action => "new"

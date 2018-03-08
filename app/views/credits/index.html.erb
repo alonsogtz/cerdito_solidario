@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>
+    Credits
+    <a href="/credits/new" class="btn btn-lg btn-success">New Credit</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Amount</th>
+        <th>Group</th>
+        <th>Pricing</th>
+        <th>Comments</th>
+        <th>Weekly payment</th>
+        <th>Status</th>
+        <th>Disbursement confirmation</th>
+        <th>Disbursement confirmation image</th>
+        <th>Disbursement option</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @credits.each do |credit| %>
+      <tr>
+        <td><%= credit.user_id %></td>
+        <td><%= credit.amount %></td>
+        <td><%= credit.group_id %></td>
+        <td><%= credit.pricing %></td>
+        <td><%= credit.comments %></td>
+        <td><%= credit.weekly_payment %></td>
+        <td><%= credit.status %></td>
+        <td><%= credit.disbursement_confirmation %></td>
+        <td><%= credit.disbursement_confirmation_image %></td>
+        <td><%= credit.disbursement_option_id %></td>
+        <td>
+          <a href="/credits/<%= credit.id %>" class="btn btn-primary">Show</a>
+          <a href="/credits/<%= credit.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_credit/<%= credit.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

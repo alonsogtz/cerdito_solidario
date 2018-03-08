@@ -1,0 +1,117 @@
+<!-- Validation failure messages -->
+<% if @credit.errors.any? %>
+  <% @credit.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Credit</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_credit" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @credit.user_id %>">
+      </div>
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @credit.amount %>">
+      </div>
+
+      <!-- Label and input for group_id -->
+      <div class="form-group">
+        <label for="group_id" class="control-label">
+          Group
+        </label>
+
+        <input type="text" id="group_id" name="group_id" placeholder="Group" class="form-control" value="<%= @credit.group_id %>">
+      </div>
+
+      <!-- Label and input for pricing -->
+      <div class="form-group">
+        <label for="pricing" class="control-label">
+          Pricing
+        </label>
+
+        <input type="text" id="pricing" name="pricing" placeholder="Pricing" class="form-control" value="<%= @credit.pricing %>">
+      </div>
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @credit.comments %>">
+      </div>
+
+      <!-- Label and input for weekly_payment -->
+      <div class="form-group">
+        <label for="weekly_payment" class="control-label">
+          Weekly payment
+        </label>
+
+        <input type="text" id="weekly_payment" name="weekly_payment" placeholder="Weekly payment" class="form-control" value="<%= @credit.weekly_payment %>">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="checkbox">
+        <label for="status">
+          <input type="checkbox" id="status" name="status" value="1" <%= "checked" if @credit.status %>>
+          Status
+        </label>
+      </div>
+
+      <!-- Label and input for disbursement_confirmation -->
+      <div class="form-group">
+        <label for="disbursement_confirmation" class="control-label">
+          Disbursement confirmation
+        </label>
+
+        <input type="text" id="disbursement_confirmation" name="disbursement_confirmation" placeholder="Disbursement confirmation" class="form-control" value="<%= @credit.disbursement_confirmation %>">
+      </div>
+
+      <!-- Label and input for disbursement_confirmation_image -->
+      <div class="form-group">
+        <label for="disbursement_confirmation_image" class="control-label">
+          Disbursement confirmation image
+        </label>
+
+        <input type="text" id="disbursement_confirmation_image" name="disbursement_confirmation_image" placeholder="Disbursement confirmation image" class="form-control" value="<%= @credit.disbursement_confirmation_image %>">
+      </div>
+
+      <!-- Label and input for disbursement_option_id -->
+      <div class="form-group">
+        <label for="disbursement_option_id" class="control-label">
+          Disbursement option
+        </label>
+
+        <input type="text" id="disbursement_option_id" name="disbursement_option_id" placeholder="Disbursement option" class="form-control" value="<%= @credit.disbursement_option_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Credit
+      </button>
+      or
+      <a href="/credits">Cancel</a>
+    </form>
+  </div>
+</div>
