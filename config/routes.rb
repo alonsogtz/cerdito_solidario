@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Payment_confirmation resource:
+  # CREATE
+  get "/payment_confirmations/new", :controller => "payment_confirmations", :action => "new"
+  post "/create_payment_confirmation", :controller => "payment_confirmations", :action => "create"
+
+  # READ
+  get "/payment_confirmations", :controller => "payment_confirmations", :action => "index"
+  get "/payment_confirmations/:id", :controller => "payment_confirmations", :action => "show"
+
+  # UPDATE
+  get "/payment_confirmations/:id/edit", :controller => "payment_confirmations", :action => "edit"
+  post "/update_payment_confirmation/:id", :controller => "payment_confirmations", :action => "update"
+
+  # DELETE
+  get "/delete_payment_confirmation/:id", :controller => "payment_confirmations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Group resource:
   # CREATE
   get "/groups/new", :controller => "groups", :action => "new"

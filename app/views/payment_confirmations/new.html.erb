@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @payment_confirmation.errors.any? %>
+  <% @payment_confirmation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Payment Confirmation</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_payment_confirmation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for group_id -->
+      <div class="form-group">
+        <label for="group_id" class="control-label">
+          Group
+        </label>
+
+        <input type="text" id="group_id" name="group_id" placeholder="Group" class="form-control" value="<%= @payment_confirmation.group_id %>">
+      </div>
+
+      <!-- Label and input for date_posted -->
+      <div class="form-group">
+        <label for="date_posted" class="control-label">
+          Date posted
+        </label>
+
+        <input type="text" id="date_posted" name="date_posted" placeholder="Date posted" class="form-control" value="<%= @payment_confirmation.date_posted %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @payment_confirmation.image %>">
+      </div>
+
+      <!-- Label and input for payment_method_id -->
+      <div class="form-group">
+        <label for="payment_method_id" class="control-label">
+          Payment method
+        </label>
+
+        <input type="text" id="payment_method_id" name="payment_method_id" placeholder="Payment method" class="form-control" value="<%= @payment_confirmation.payment_method_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Payment Confirmation
+      </button>
+      or
+      <a href="/payment_confirmations">Cancel</a>
+    </form>
+  </div>
+</div>
