@@ -19,7 +19,7 @@
       <tr>
         <td><%= disbursement_option.bank.name %></td>
         <td><%= disbursement_option.account_number %></td>
-        <td><%= disbursement_option.beneficiary_id %></td>
+        <td><%= disbursement_option.beneficiary.email %></td>
         <td>
           <a href="/disbursement_options/<%= disbursement_option.id %>" class="btn btn-primary">Show</a>
           <a href="/disbursement_options/<%= disbursement_option.id %>/edit" class="btn btn-warning">Edit</a>
