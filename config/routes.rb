@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "personal_messages#index"
   # Routes for the Disbursement_option resource:
   # CREATE
   get "/disbursement_options/new", :controller => "disbursement_options", :action => "new"
