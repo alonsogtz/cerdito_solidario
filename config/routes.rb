@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Additional_info resource:
+  # CREATE
+  get "/additional_infos/new", :controller => "additional_infos", :action => "new"
+  post "/create_additional_info", :controller => "additional_infos", :action => "create"
+
+  # READ
+  get "/additional_infos", :controller => "additional_infos", :action => "index"
+  get "/additional_infos/:id", :controller => "additional_infos", :action => "show"
+
+  # UPDATE
+  get "/additional_infos/:id/edit", :controller => "additional_infos", :action => "edit"
+  post "/update_additional_info/:id", :controller => "additional_infos", :action => "update"
+
+  # DELETE
+  get "/delete_additional_info/:id", :controller => "additional_infos", :action => "destroy"
+  #------------------------------
+
   # Routes for the Bank resource:
   # CREATE
   get "/banks/new", :controller => "banks", :action => "new"
