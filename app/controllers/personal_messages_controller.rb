@@ -10,7 +10,7 @@ class PersonalMessagesController < ApplicationController
   end
 
   def index
-    @personal_messages = PersonalMessage.all
+    @personal_messages = current_user.sent_messages.page(params[:page]).per(10)
 
     render("personal_messages/index.html.erb")
   end
