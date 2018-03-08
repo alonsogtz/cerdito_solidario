@@ -10,7 +10,7 @@ class AdditionalInfosController < ApplicationController
   end
 
   def index
-    @additional_infos = AdditionalInfo.all
+    @additional_infos = current_user.additional_infos.page(params[:page]).per(10)
 
     render("additional_infos/index.html.erb")
   end
